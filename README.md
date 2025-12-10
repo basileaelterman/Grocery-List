@@ -8,3 +8,7 @@ I also suggest you to reach out to me in any way if you've found bugs, security 
 
 That's basically everything I can say about this project. 
 Thanks for taking your time to read this!
+
+## Disclaimer
+
+Because I'm unbothered to create create the option to delete your account, I've set up a cron job that wipes the entire database every sunday at 10PM CET.

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+    <a href="https://basileaelterman.com">Back to portfolio</a>
+
+    {% if user %}
+        <p>Logged in as: <strong>{{ user.email }}</strong></p>
+        
+        <ul>
+            <li><a href="{{ path('app_grocerylist') }}">My groceries</a></li>
+            <li><a href="{{ path('app_logout') }}">Log out</a></li>
+        </ul>
+    {% else %}
+        <h1>Simple grocery list (CRUD)</h1>
+        <p>Log in or register to continue with this demo.</p>
+
+        <ul>
+            <li><a href="{{ path('app_login') }}">Log in</a></li>
+            <li><a href="{{ path('app_register') }}">Register</a></li>
+        </ul>
+    {% endif %}
+
+{% endblock %}

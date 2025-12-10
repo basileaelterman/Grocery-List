@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New product{% endblock %}
+
+{% block body %}
+
+    <nav>
+        <a href="{{ path('app_home') }}">home</a> / 
+        <a href="{{ path('app_grocerylist') }}">groceries</a> / 
+        <a href="{{ path('app_grocerylist_create') }}">create</a>
+    </nav>
+
+    <h1>Create new product</h1>
+
+    {{ form_start(form) }}
+
+        {{ form_row(form.name) }}
+        {{ form_row(form.amount) }}
+        {{ form_row(form.details) }}
+
+        {{ form_row(form.save) }}
+
+    {{ form_end(form) }}
+
+{% endblock %}

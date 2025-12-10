@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Delete {{ product.name }}{% endblock %}
+
+{% block body %}
+
+    <nav>
+        <a href="{{ path('app_home') }}">home</a> / 
+        <a href="{{ path('app_grocerylist') }}">groceries</a> / 
+        <a href="{{ path('app_grocerylist_product', {id: product.id}) }}">{{ product.name }}</a> / 
+        <a href="{{ path('app_grocerylist_delete', {id: product.id}) }}">delete</a>
+    </nav>
+
+    <h1>Delete {{ product.name }}</h1>
+
+    <p>Are you sure you want to delete {{ product.name }} from you grocery list?</p>
+
+    {{ form_start(form) }}
+
+        {{ form_row(form.save, {
+            'label': 'Yes, delete ' ~ product.name,
+        }) }}
+
+        <a href="{{ path('app_grocerylist_product', {id: product.id}) }}">Keep {{ product.name }}</a>
+
+    {{ form_end(form) }}
+
+{% endblock %}

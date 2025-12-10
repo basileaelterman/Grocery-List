@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My list{% endblock %}
+
+{% block body %}
+
+    <nav>
+        <a href="{{ path('app_home') }}">home</a> / 
+        <a href="{{ path('app_grocerylist') }}">groceries</a>
+    </nav>
+
+    <h1>Your groceries</h1>
+
+    {% if groceries|length > 0 %}
+        <table>
+            <thead>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Amount</th>
+            </thead>
+            <tbody>
+                {% for product in groceries %}
+                    <tr>
+                        <td>{{ product.id }}</td>
+                        <td><a href="{{ path('app_grocerylist_product', {id: product.id}) }}">{{ product.name }}</a></td>
+                        <td>{{ product.amount }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{{ path('app_grocerylist_create') }}">Add product</a>
+    {% else %}
+        <p>Hm, it seems you haven't added anything yet. <a href="{{ path('app_grocerylist_create') }}">Let's fix that</a>!</p>
+    {% endif %}
+
+{% endblock %}

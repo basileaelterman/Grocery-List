@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Update {{ product.name }}{% endblock %}
+
+{% block body %}
+
+    <nav>
+        <a href="{{ path('app_home') }}">home</a> / 
+        <a href="{{ path('app_grocerylist') }}">groceries</a> / 
+        <a href="{{ path('app_grocerylist_product', {id: product.id}) }}">{{ product.name }}</a> /
+        <a href="{{ path('app_grocerylist_update', {id: product.id}) }}">update</a>
+    </nav>
+
+    <h1>Update {{ product.name }}</h1>
+
+    {{ form_start(form) }}
+
+        {{ form_row(form.name) }}
+        {{ form_row(form.amount) }}
+        {{ form_row(form.details) }}
+
+        {{ form_row(form.save) }}
+
+    {{ form_end(form) }}
+
+{% endblock %}

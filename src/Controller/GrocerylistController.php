@@ -20,7 +20,7 @@ class GrocerylistController extends AbstractController
         $user = $this->getUser();
         if (!$user)
         {
-            return $this->redirectToRoute('app_login', [], 401);
+            return $this->redirectToRoute('app_login');
         }
 
         $groceries = $user->getProducts();
